@@ -55,11 +55,11 @@ public class StreamBoxService {
     public boolean play(int contentId, int userAge) {
         // bevidst: spiller aldrig noget
         Optional<Content> content = findById(contentId);
-        if(content.isPresent() && content.get().getAgeRating() <= userAge) {
+        if (content.isPresent() && content.get().getAgeRating() <= userAge) {
             content.get().incrementViews();
             return true;
         }
-        if(userAge < 0){
+        if (userAge < 0){
             throw new IllegalArgumentException("User age is negative");
         }
         return false;
@@ -77,7 +77,7 @@ public class StreamBoxService {
         return contentGenres;
     }
 
-    public int totalRuntimeByGenre(Genre genre) {
+       public int totalRuntimeByGenre(Genre genre) {
         // bevidst: 0
         ArrayList<Content> contentGenres = new ArrayList<>();
         int totalRuntime = 0;
